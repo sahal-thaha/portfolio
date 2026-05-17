@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Bebas+Neue&display=swap');
+
+/* ── THEME VARIABLES ── */
+:root {
+  --bg: #f4f1ec;
+  --bg2: #ede9e0;
+  --card: rgba(255,255,255,0.72);
+  --card-solid: #ffffff;
+  --ink: #0d0b08;
+  --ink2: #2e2b26;
+  --muted: #7a7670;
+  --gold: #e8930a;
+  --gold2: #c47a00;
+  --gold-glow: rgba(232,147,10,0.35);
+  --gold-pale: rgba(232,147,10,0.08);
+  --border: rgba(13,11,8,0.1);
+  --border-gold: rgba(232,147,10,0.4);
+  --nav: rgba(244,241,236,0.92);
+  --brush: #e8930a;
+  --terminal-bg: #0d0f0a;
+  --terminal-text: #a8ff78;
+}
+[data-theme="dark"] {
+  --bg: #09090f;
+  --bg2: #0f0e18;
+  --card: rgba(15,14,24,0.85);
+  --card-solid: #0f0e18;
+  --ink: #f0ece0;
+  --ink2: #c8c4b4;
+  --muted: #6a6860;
+  --gold: #cc7a08;
+  --gold2: #a86200;
+  --gold-glow: rgba(204,122,8,0.45);
+  --gold-pale: rgba(204,122,8,0.08);
+  --border: rgba(204,122,8,0.1);
+  --border-gold: rgba(204,122,8,0.38);
+  --nav: rgba(9,9,15,0.94);
+  --brush: #cc7a08;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;transition:background .4s,color .4s;}
+
+/* grid overlay */
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(232,147,10,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(232,147,10,.045) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;z-index:0;}
+[data-theme="dark"] body::before{background-image:linear-gradient(rgba(204,122,8,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(204,122,8,.04) 1px,transparent 1px);}
+
+/* scrollbar */
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--gold);}
+
+/* cursor */
+*{cursor:none!important;}
+.cur{position:fixed;width:9px;height:9px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);mix-blend-mode:multiply;transition:width .18s,height .18s;}
+[data-theme="dark"] .cur{mix-blend-mode:screen;}
+.cur.h{width:5px;height:5px;}
+.cur-r{position:fixed;width:32px;height:32px;border:1.5px solid var(--gold);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .18s,height .18s,opacity .18s;opacity:.45;}
+.cur-r.h{width:46px;height:46px;opacity:.9;}
+
+/* layout */
+.wrap{max-width:1300px;margin:0 auto;padding:0 28px;}
+.sec{padding:50px 0;position:relative;z-index:1;}
+
+/* typography */
+.lbl{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.lbl::before{content:'';width:26px;height:1px;background:var(--gold);}
+
+h2.stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,4rem);letter-spacing:2px;color:var(--ink);line-height:1;}
+.gld{color:var(--gold);}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:9px;padding:12px 28px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;cursor:none!important;transition:all .28s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));border:none;position:relative;overflow:hidden;}
+.btn-g{background:var(--gold);color:#000;font-weight:700;}
+.btn-g::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.22);transform:translateX(-100%);transition:transform .38s;}
+.btn-g:hover::before{transform:translateX(100%);}
+.btn-g:hover{box-shadow:0 0 28px var(--gold-glow);transform:translateY(-2px);}
+.btn-o{background:transparent;color:var(--gold);border:1.5px solid var(--gold);}
+.btn-o:hover{background:var(--gold);color:#000;box-shadow:0 0 20px var(--gold-glow);}
+
+/* tag */
+.tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.5px;padding:3px 10px;border:1px solid var(--border-gold);color:var(--gold);background:var(--gold-pale);}
+
+/* glass card */
+.gc{background:var(--card);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.55);box-shadow:0 4px 24px rgba(0,0,0,.07);}
+[data-theme="dark"] .gc{border:1px solid var(--border);box-shadow:0 8px 36px rgba(0,0,0,.4);}
+
+/* corner decor */
+.c-tl,.c-br{position:absolute;width:16px;height:16px;border-color:var(--gold);border-style:solid;}
+.c-tl{top:0;left:0;border-width:2px 0 0 2px;}
+.c-br{bottom:0;right:0;border-width:0 2px 2px 0;}
+
+/* animations */
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes rot{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes rot-r{from{transform:rotate(360deg)}to{transform:rotate(0)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes scan{0%{top:0}100%{top:100%}}
+@keyframes glowP{0%,100%{box-shadow:0 0 12px var(--gold-glow)}50%{box-shadow:0 0 36px var(--gold-glow),0 0 60px var(--gold-glow)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes typing{from{width:0}to{width:100%}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.anim-float{animation:float 4s ease-in-out infinite;}
+.anim-glow{animation:glowP 2.5s ease-in-out infinite;}
+
+/* responsive helpers */
+@media(max-width:768px){.sec{padding:64px 0;}.wrap{padding:0 16px;}}
+
+/* ── GLITTER BACKGROUND for About→Contact ── */
+.glitter-bg {
+  position: relative;
+}
+.glitter-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, var(--gold) 1px, transparent 1px),
+    radial-gradient(circle, var(--gold) 1.2px, transparent 1.2px),
+    radial-gradient(circle, var(--gold) .8px, transparent .8px);
+  background-size: 80px 80px, 120px 120px, 60px 60px;
+  background-position: 0 0, 40px 40px, 20px 60px;
+  opacity: .03;
+  pointer-events: none;
+  z-index: 0;
+  animation: glitterAnim 8s ease-in-out infinite alternate;
+}
+[data-theme="dark"] .glitter-bg::before { opacity: .05; }
+
+@keyframes glitterAnim {
+  0% { opacity: .03; transform: scale(1); }
+  50% { opacity: .065; }
+  100% { opacity: .03; transform: scale(1.01); }
+}
+/* dark mode glitter handled via opacity override above */
+
+/* floating glitter stars — applied via JS canvas in sections */
+.glitter-wrap { position: relative; z-index: 1; }

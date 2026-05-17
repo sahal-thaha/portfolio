@@ -1,0 +1,38 @@
+.monitorOuter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.monitorBezel {
+  width: 100%;
+  border-radius: 10px 10px 4px 4px;
+  border: 3px solid #1e2030;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px #090a10,
+    0 28px 80px rgba(0,0,0,.75),
+    0 0 60px rgba(204,122,8,.07),
+    inset 0 0 30px rgba(0,0,0,.5);
+  /* CRT scanlines */
+  position: relative;
+}
+.monitorBezel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, rgba(168,255,120,.008) 0px, transparent 1px, transparent 3px);
+  pointer-events: none;
+  z-index: 10000;
+  border-radius: 8px;
+}
+.standPole {
+  width: 48px; height: 26px;
+  background: linear-gradient(to bottom, #1a1c28, #141520);
+  border-left: 1px solid #252740; border-right: 1px solid #252740;
+}
+.standBase {
+  width: 220px; height: 10px;
+  background: linear-gradient(to bottom, #1e2030, #141520);
+  border-radius: 4px; border: 1px solid #252740;
+  box-shadow: 0 4px 16px rgba(0,0,0,.5);
+}

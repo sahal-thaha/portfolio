@@ -1,0 +1,72 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+/* Animate on scroll */
+[data-a] {
+  opacity: 1;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.vis [data-a] { opacity: 1; transform: translateY(0); }
+
+.bio { font-size: 16px; line-height: 1.8; color: var(--ink2); margin-bottom: 14px; }
+
+.details {
+  margin-top: 20px; border-left: 2px solid var(--gold);
+  padding: 12px 16px; background: var(--gold-pale);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.detailRow { display: flex; gap: 12px; }
+.dk {
+  font-family: 'Space Mono', monospace; font-size: 10px;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--muted); min-width: 70px; flex-shrink: 0;
+}
+.dv { font-size: 14px; color: var(--ink2); }
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  /* IMPORTANT: on mobile this must come AFTER the text */
+}
+
+.card {
+  background: var(--card); backdrop-filter: blur(10px);
+  border: 1px solid var(--border); padding: 22px 18px;
+  position: relative; transition: all .3s;
+}
+.card:hover {
+  border-color: var(--border-gold); transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(0,0,0,.12), 0 0 18px var(--gold-glow);
+}
+.cardIcon { color: var(--gold); margin-bottom: 10px; }
+.cardTitle { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 7px; }
+.cardDesc { font-size: 13px; line-height: 1.6; color: var(--muted); }
+
+/* ── RESPONSIVE ──
+   On mobile: text first (order 1), cards second (order 2) 
+   This ensures "Who I Am" heading appears before the cards  */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  /* Left text panel = first */
+  .left {
+    order: 1;
+  }
+  /* Cards panel = second (after heading) */
+  .cards {
+    order: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards { grid-template-columns: 1fr; }
+  .card { padding: 16px 14px; }
+}

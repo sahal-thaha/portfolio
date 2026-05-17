@@ -1,0 +1,32 @@
+# sahalpt.dev - Robots.txt
+# Cybersecurity Portfolio of Sahal P T
+
+User-agent: *
+Allow: /
+Allow: /sahal-day.jpg
+Allow: /og-image.jpg
+Allow: /SAHAL_CYBERSECURITY.pdf
+Disallow: /api/
+Disallow: /.env
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /*.config.js$
+
+# Allow major crawlers explicitly
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Sitemap
+Sitemap: https://sahalpt.dev/sitemap.xml
+Sitemap: https://sahalpt.dev/sitemap-images.xml

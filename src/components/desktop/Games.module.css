@@ -1,0 +1,214 @@
+.gameWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: #08090e;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.canvas {
+  display: block;
+  image-rendering: pixelated;
+  max-width: 100%;
+  touch-action: none;
+  flex-shrink: 0;
+}
+
+.ctrl {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  padding: 6px 14px;
+  background: var(--gold);
+  color: #000;
+  border: none;
+  cursor: pointer !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+}
+.powUsed {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: rgba(255,100,0,0.4);
+  letter-spacing: 1px;
+  padding: 5px 8px;
+  border: 1px solid rgba(255,100,0,0.2);
+}
+
+.btn:active { filter: brightness(1.2); }
+.btn:disabled { opacity: .5; cursor: not-allowed !important; }
+
+.btnPause {
+  background: #1e3a2e;
+  color: #a8ff78;
+  border: 1px solid #2a5a3a;
+}
+.btnPause:hover:not(:disabled) { background: #2a5a3a; }
+
+.btnPow {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  padding: 5px 10px;
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  cursor: pointer !important;
+  font-weight: bold;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.btnPow:disabled { opacity: .4; cursor: not-allowed !important; }
+
+.sc {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: #a8ff78;
+  letter-spacing: 1px;
+}
+
+/* ── Mobile Jump Button (Dino) ── */
+.mobileJump {
+  display: none;
+  gap: 10px;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.jumpBtn {
+  min-width: 80px;
+  height: 50px;
+  background: rgba(168,255,120,0.15);
+  border: 2px solid rgba(168,255,120,0.4);
+  color: #a8ff78;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer !important;
+  border-radius: 10px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  touch-action: manipulation;
+  letter-spacing: 1px;
+}
+.jumpBtn:active { background: rgba(168,255,120,0.45); transform: scale(0.96); }
+
+/* ── Snake D-pad ── */
+.dpad {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.dpadRow {
+  display: flex;
+  gap: 3px;
+}
+.dBtn {
+  width: 52px;
+  height: 52px;
+  background: rgba(168,255,120,0.1);
+  border: 2px solid rgba(168,255,120,0.3);
+  color: #a8ff78;
+  font-size: 20px;
+  cursor: pointer !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  touch-action: manipulation;
+}
+.dBtn:active { background: rgba(168,255,120,0.45); transform: scale(0.95); }
+
+.dBtnMid {
+  width: 52px;
+  height: 52px;
+  background: rgba(212,130,10,0.2);
+  border: 2px solid rgba(212,130,10,0.4);
+  color: var(--gold, #d4820a);
+  font-size: 14px;
+  cursor: pointer !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  touch-action: manipulation;
+}
+.dBtnMid:active { background: rgba(212,130,10,0.5); }
+
+/* ── Breakout slider (Fix 8: thumb moves with finger) ── */
+.paddleBar {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  flex-shrink: 0;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+.paddleLabel {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: rgba(85,153,255,0.6);
+  letter-spacing: 1px;
+}
+.paddleTrack {
+  width: 100%;
+  height: 48px;
+  background: rgba(85,153,255,0.08);
+  border: 2px solid rgba(85,153,255,0.25);
+  border-radius: 10px;
+  touch-action: none;
+  cursor: grab !important;
+  position: relative;
+  overflow: hidden;
+}
+.paddleTrack:active { cursor: grabbing !important; }
+
+/* Thumb that moves left/right based on state */
+.paddleThumb {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 30px;
+  background: #5599ff;
+  border-radius: 6px;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(85,153,255,0.5);
+  transition: left 0.05s linear;
+}
+
+/* Show mobile controls on touch/small screens */
+@media (max-width: 768px) {
+  .dpad { display: flex; }
+  .paddleBar { display: flex; }
+  .mobileJump { display: flex; }
+}
+@media (hover: none) and (pointer: coarse) {
+  .dpad { display: flex; }
+  .paddleBar { display: flex; }
+  .mobileJump { display: flex; }
+}

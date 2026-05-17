@@ -1,0 +1,375 @@
+.browser {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+  font-family: 'Space Grotesk', sans-serif;
+  overflow: hidden;
+}
+
+/* ── Toolbar ── */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 8px;
+  background: #1e1e28;
+  border-bottom: 1px solid #2a2c3a;
+  flex-shrink: 0;
+}
+
+.navBtn {
+  background: #2a2c3a;
+  border: 1px solid #3a3c4a;
+  color: #a0a0b0;
+  padding: 4px 10px;
+  font-size: 11px;
+  cursor: pointer !important;
+  border-radius: 3px;
+  transition: all .18s;
+  white-space: nowrap;
+}
+.navBtn:hover:not(:disabled) { background: #3a3c4a; color: #fff; }
+.navBtn:disabled { opacity: .35; cursor: not-allowed !important; }
+
+.urlForm { flex: 1; }
+
+.urlBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #0e0f18;
+  border: 1px solid #3a3c4a;
+  border-radius: 4px;
+  padding: 0 8px;
+  height: 28px;
+}
+
+.lockIcon { font-size: 11px; flex-shrink: 0; }
+
+.urlInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #d0d0e0;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  cursor: text !important;
+}
+
+/* ── Page area ── */
+.pageArea {
+  flex: 1;
+  overflow-y: auto;
+  background: #f8f8f2;
+}
+.pageArea::-webkit-scrollbar { width: 4px; }
+.pageArea::-webkit-scrollbar-thumb { background: #ccc; }
+
+/* ── Site pages ── */
+.page {
+  min-height: 100%;
+  background: #fff;
+  color: #111;
+}
+
+.siteNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: #1a1a2e;
+  color: #fff;
+}
+
+.siteBrand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #d4820a;
+}
+
+.siteLinks {
+  display: flex;
+  gap: 16px;
+}
+
+.siteLink {
+  color: rgba(255,255,255,.7);
+  font-size: 13px;
+  cursor: pointer !important;
+  text-decoration: none;
+  transition: color .2s;
+}
+.siteLink:hover { color: #d4820a; }
+
+.siteBody {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+.siteH1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+}
+
+.siteP {
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.siteCard {
+  background: #f0f0f8;
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin-top: 16px;
+  border-radius: 4px;
+}
+.siteCard h2 { font-size: 16px; margin-bottom: 8px; color: #1a1a2e; }
+.siteCard p { color: #555; font-size: 13px; }
+
+/* ── Raw page (robots.txt) ── */
+.pageRaw {
+  background: #fff;
+  min-height: 100%;
+  padding: 16px;
+}
+.rawContent {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: #222;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+/* ── Login ── */
+.loginBox {
+  max-width: 360px;
+  margin: 40px auto;
+  padding: 28px;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.08);
+}
+
+.loginTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+.loginSub {
+  color: #888;
+  font-size: 12px;
+  margin-bottom: 20px;
+  font-family: 'Space Mono', monospace;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.loginLabel {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #666;
+}
+
+.loginInput {
+  padding: 9px 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  font-family: 'Space Grotesk', sans-serif;
+  cursor: text !important;
+  border-radius: 3px;
+  transition: border-color .2s;
+}
+.loginInput:focus { border-color: #d4820a; }
+
+.loginErr {
+  color: #ff5533;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  padding: 6px 8px;
+  background: rgba(255,85,51,.08);
+  border-left: 3px solid #ff5533;
+}
+
+.loginBtn {
+  margin-top: 6px;
+  padding: 10px;
+  background: #1a1a2e;
+  color: #fff;
+  border: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  cursor: pointer !important;
+  border-radius: 3px;
+  transition: background .2s;
+}
+.loginBtn:hover { background: #d4820a; }
+
+.loginHint {
+  margin-top: 14px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: #888;
+  text-align: center;
+}
+
+/* ── Dashboard ── */
+.dashCard {
+  border: 2px solid #5599ff;
+  border-radius: 6px;
+  padding: 20px;
+  background: #fff;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.adminBadge {
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  background: #ff5533;
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding: 2px 10px;
+  border-radius: 2px;
+}
+
+.dashTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+}
+
+.dashTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.dashKey {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #888;
+  padding: 6px 12px 6px 0;
+  width: 80px;
+  vertical-align: top;
+}
+.dashVal {
+  color: #222;
+  padding: 6px 0;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.dashError {
+  padding: 20px;
+  background: rgba(255,85,51,.08);
+  border: 1px solid #ff5533;
+  color: #ff5533;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.idorHint {
+  margin-top: 14px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: #666;
+  background: #f0f0f8;
+  padding: 8px 12px;
+  border-radius: 3px;
+}
+
+.flagBox {
+  margin-top: 16px;
+  padding: 14px;
+  background: rgba(255,215,0,.1);
+  border: 2px solid #ffd700;
+  border-radius: 4px;
+}
+.flagBox p { font-size: 13px; color: #333; margin-bottom: 6px; }
+
+.userList {
+  background: #f8f8ff;
+  border: 1px solid #e0e0f0;
+  border-radius: 4px;
+  padding: 14px;
+}
+.ulTitle {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 10px;
+}
+.ulBtns { display: flex; gap: 8px; flex-wrap: wrap; }
+.ulBtn {
+  padding: 5px 14px;
+  background: #fff;
+  border: 1px solid #5599ff;
+  color: #5599ff;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  cursor: pointer !important;
+  border-radius: 3px;
+  transition: all .18s;
+}
+.ulBtn:hover { background: #5599ff; color: #fff; }
+.ulBtnActive { background: #5599ff !important; color: #fff !important; }
+
+/* ── Status bar ── */
+.statusBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 3px 10px;
+  background: #1e1e28;
+  border-top: 1px solid #2a2c3a;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: #4a5a6a;
+  flex-shrink: 0;
+}
+
+/* ── Fix cursors inside WebBrowser — override global cursor:none ── */
+.browser * {
+  cursor: auto !important;
+}
+.browser a,
+.browser button,
+.browser .siteLink,
+.browser .navBtn,
+.browser .loginBtn,
+.browser .ulBtn,
+.browser .ulBtnActive {
+  cursor: pointer !important;
+}
+.browser input,
+.browser .urlInput {
+  cursor: text !important;
+}

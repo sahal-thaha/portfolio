@@ -1,0 +1,26 @@
+{
+  "name": "Sahal P T — Cybersecurity Engineer & Developer",
+  "short_name": "Sahal PT",
+  "description": "Cybersecurity Analyst, SOC Analyst, Penetration Tester and Full-Stack Developer from Kerala, India",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080810",
+  "theme_color": "#d4820a",
+  "orientation": "any",
+  "categories": ["education", "productivity", "utilities"],
+  "lang": "en-IN",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/favicon-16.png", "sizes": "16x16", "type": "image/png" }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Sahal P T Portfolio Homepage"
+    }
+  ]
+}

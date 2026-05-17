@@ -1,0 +1,404 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+  background: var(--bg);
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.brush1 {
+  position: absolute;
+  top: 5%;
+  left: 35%;
+  width: 340px;
+  height: 92%;
+  background: linear-gradient(160deg, var(--gold) 0%, transparent 68%);
+  opacity: .11;
+  border-radius: 40% 60% 60% 40% / 30% 30% 70% 70%;
+  transform: rotate(-9deg);
+  pointer-events: none;
+  filter: blur(3px);
+  z-index: 0;
+}
+.brush2 {
+  position: absolute;
+  top: 3%;
+  left: 31%;
+  width: 290px;
+  height: 82%;
+  background: linear-gradient(170deg, var(--gold) 0%, rgba(232,147,10,.4) 38%, transparent 72%);
+  opacity: .16;
+  border-radius: 35% 65% 55% 45% / 40% 30% 70% 60%;
+  transform: rotate(-13deg);
+  pointer-events: none;
+  z-index: 0;
+}
+[data-theme="dark"] .brush1 { opacity: .08; }
+[data-theme="dark"] .brush2 { opacity: .1; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.95fr 0.65fr;
+  gap: 0;
+  align-items: flex-end;
+  /* NO fixed min-height — content determines height */
+  padding: 24px 0 48px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── LEFT ── */
+.left { padding-right: 28px; }
+
+.tagline3 {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.helloScript {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.6rem, 8vw, 7.2rem);
+  letter-spacing: 4px;
+  line-height: .9;
+  margin-bottom: 12px;
+}
+.im { color: var(--ink); }
+.nameGold {
+  color: var(--gold);
+  text-shadow: 0 0 50px var(--gold-glow);
+}
+
+.roles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink2);
+}
+.div { color: var(--gold); font-size: 14px; }
+
+/* ── BIG typewriter ── */
+.typeBlock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  padding: 14px 20px;
+  border-left: 3px solid var(--gold);
+  background: var(--gold-pale);
+  min-height: 58px;
+}
+.typePrefix {
+  font-family: 'Space Mono', monospace;
+  font-size: 22px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.typeTxt {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(14px, 2vw, 20px);
+  color: var(--ink2);
+  letter-spacing: .5px;
+  font-weight: 700;
+}
+.typeCur {
+  width: 3px;
+  height: 26px;
+  background: var(--gold);
+  animation: blink 1s infinite;
+  flex-shrink: 0;
+}
+
+.quoteRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.mailBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border: 1px solid var(--border-gold);
+  color: var(--ink2);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  text-decoration: none;
+  transition: all .25s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.mailBox:hover { border-color: var(--gold); color: var(--gold); }
+.quote {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink2);
+  max-width: 300px;
+}
+.qq { font-size: 28px; color: var(--gold); font-family: 'Cormorant Garamond', serif; margin-right: 3px; line-height: 1; }
+.qq2 { font-size: 28px; color: var(--gold); font-family: 'Cormorant Garamond', serif; margin-left: 3px; line-height: 1; }
+
+.ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
+
+.socials { display: flex; gap: 8px; }
+.soc {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); border: 1px solid var(--border);
+  text-decoration: none; transition: all .25s;
+}
+.soc:hover { color: var(--gold); border-color: var(--gold); background: var(--gold-pale); transform: translateY(-2px); }
+
+/* ── CENTER PHOTO ── */
+.photoCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  height: 100%;
+}
+.photoWrap {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  height: clamp(440px, 60vh, 580px);
+}
+.photoGlow {
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 80%; height: 50%;
+  background: radial-gradient(ellipse, var(--gold-glow) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+.photo {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  position: relative; z-index: 1;
+  filter: contrast(1.05) brightness(1.02) saturate(1.08);
+  border-radius: 15px 15px 0 0;
+}
+.photoShine {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 55%, var(--bg) 100%);
+  z-index: 2; pointer-events: none;
+}
+/* Subtle vignette overlay on photo */
+.photoWrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, transparent 60%, rgba(0,0,0,0.15) 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ── RIGHT ── */
+.right {
+  padding-left: 24px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+/* Remove signature comment */
+.rightTxt {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  letter-spacing: 1.8px;
+  line-height: 2.1;
+  color: var(--ink2);
+  text-transform: uppercase;
+}
+
+/* Right panel badges */
+.rightBadges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.rightBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid var(--border-gold);
+  background: var(--gold-pale);
+  min-width: 52px;
+  gap: 2px;
+}
+
+.badgeNum {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.badgeLbl {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* Decorative accent */
+.rightAccent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding-left: 2px;
+}
+
+.accentLine {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  opacity: .5;
+}
+
+.accentDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold-glow);
+}
+
+.letsCreate { display: flex; flex-direction: column; gap: 3px; }
+.letsScript {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold);
+}
+.something {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* scroll */
+.scroll {
+  position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 5;
+}
+.scrollLine {
+  width: 1px; height: 44px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: float 2s ease-in-out infinite;
+}
+.scrollTxt {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px; letter-spacing: 3px; color: var(--muted);
+}
+
+/* ── TABLET (1100px and below) ── */
+@media (max-width: 1100px) {
+  .layout { grid-template-columns: 1fr 1fr; }
+  .right { display: none; }
+  /* Hide brushes on tablet too - they look bad without 3-col layout */
+  .brush1, .brush2 { display: none; }
+}
+
+/* ── MOBILE (720px and below) ── */
+@media (max-width: 720px) {
+  .hero {
+    min-height: 100svh;   /* use svh to account for browser chrome */
+    padding-top: 70px;
+    padding-bottom: 20px;
+    justify-content: flex-start;
+  }
+  .canvas { display: none; }  /* hide particle canvas on mobile for performance */
+  .brush1, .brush2 { display: none; }
+
+  .layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 32px;
+    min-height: unset;
+    gap: 8px;
+    align-items: center;
+  }
+
+  /* FIX: Photo comes first, adjusted to a more proportionate size */
+  .photoCenter {
+    order: -1;
+    height: 310px; 
+    margin-bottom: 0;
+  }
+  .photoWrap { height: 300px; max-width: 240px; }
+  .photoShine {
+    background: linear-gradient(to bottom, transparent 20%, var(--bg) 100%);
+  }
+  .photoGlow { display: none; }
+
+  .left { padding-right: 0; padding-top: 0; }
+  .roles, .quoteRow, .ctas, .socials { justify-content: center; }
+  .typeBlock { justify-content: center; }
+  .tagline3 { font-size: 9px; margin-bottom: 8px; }
+  .name { font-size: clamp(2.6rem, 10vw, 4rem); margin-bottom: 6px; }
+  .helloScript { font-size: clamp(1.4rem, 6vw, 2.2rem); margin-bottom: 2px; }
+  .roles { font-size: 8px; margin-bottom: 12px; gap: 5px; }
+  .typeBlock { padding: 10px 14px; margin-bottom: 14px; min-height: 44px; }
+  .typePrefix { font-size: 16px; }
+  .typeTxt { font-size: 13px; }
+  .quoteRow { gap: 10px; margin-bottom: 16px; flex-direction: column; align-items: center; }
+  .mailBox { font-size: 9px; padding: 6px 10px; }
+  .ctas { gap: 10px; margin-bottom: 16px; }
+  .socials { gap: 6px; }
+  .scroll { display: none; }
+}
+
+/* Extra small phones */
+@media (max-width: 400px) {
+  /* FIX: Slight reduction for very small phones so it still fits nicely */
+  .photoCenter { height: 280px; }
+  .photoWrap { height: 270px; max-width: 210px; }
+  .name { font-size: clamp(2.2rem, 9vw, 3.2rem); }
+}

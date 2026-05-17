@@ -1,0 +1,324 @@
+.desktop {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+  border: 2px solid #1e2030;
+  box-shadow: 0 0 0 1px #0a0b10, 0 24px 80px rgba(0,0,0,.8), 0 0 60px rgba(204,122,8,.06);
+  cursor: default !important;
+}
+
+/* Wallpaper decorations */
+.wpDeco1 {
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(204,122,8,.12) 0%, transparent 70%);
+  top: -100px; right: -100px;
+  pointer-events: none;
+}
+.wpDeco2 {
+  position: absolute;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(85,153,255,.08) 0%, transparent 70%);
+  bottom: -80px; left: 80px;
+  pointer-events: none;
+}
+.wpText {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -60%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 96px;
+  letter-spacing: 20px;
+  color: rgba(204,122,8,.05);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+.wpSub {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, 0%);
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 6px;
+  color: rgba(204,122,8,.06);
+  pointer-events: none;
+  user-select: none;
+  text-transform: uppercase;
+}
+.wpGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(204,122,8,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(204,122,8,.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+/* Desktop icons */
+.deskIcon {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 6px;
+  width: 72px;
+  border-radius: 6px;
+  cursor: none !important;
+  transition: background .18s;
+  z-index: 2;
+  user-select: none;
+}
+.deskIcon:hover { background: rgba(204,122,8,.15); }
+.deskIconEmoji { font-size: 30px; }
+.deskIconLabel {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: rgba(255,255,255,.75);
+  text-align: center;
+  text-shadow: 0 1px 4px rgba(0,0,0,.8);
+  letter-spacing: .5px;
+}
+
+/* Notification */
+.notif {
+  position: absolute;
+  top: 12px; right: 100px;
+  padding: 8px 16px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .5px;
+  z-index: 9000;
+  animation: fadeUp .3s ease;
+  max-width: 320px;
+  border-radius: 3px;
+}
+.notif_success { background: #a8ff78; color: #000; }
+.notif_err { background: #ff5533; color: #fff; }
+.notif_info { background: var(--gold); color: #000; }
+
+/* Power bar */
+.powerBar {
+  position: absolute;
+  top: 12px; left: 90px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  z-index: 9000;
+}
+.powerItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0,0,0,.7);
+  border: 1px solid #ffd700;
+  padding: 4px 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: #ffd700;
+  letter-spacing: .5px;
+  border-radius: 2px;
+}
+.powerTimer { color: #fff; font-weight: bold; }
+
+/* Earned flags bar */
+.earnedBar {
+  position: absolute;
+  top: 12px;
+  left: 90px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  z-index: 9000;
+}
+.earnedItem {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .5px;
+  padding: 3px 8px;
+  background: rgba(0,0,0,.6);
+  border: 1px solid rgba(212,130,10,.3);
+  color: rgba(212,130,10,.7);
+  border-radius: 2px;
+  cursor: none !important;
+}
+.earnedActive {
+  border-color: #a8ff78;
+  color: #a8ff78;
+}
+.cheatZone {
+  position: absolute;
+  bottom: 42px;
+  right: 12px;
+  z-index: 9001;
+}
+.cheatForm { display: flex; gap: 0; }
+.cheatInp {
+  background: rgba(0,0,0,.7);
+  border: 1px solid rgba(204,122,8,.4);
+  color: #a8ff78;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  padding: 5px 10px;
+  outline: none;
+  width: 200px;
+  letter-spacing: .5px;
+  transition: border-color .2s;
+}
+.cheatInp:focus { border-color: var(--gold); }
+.cheatInp::placeholder { color: rgba(168,255,120,.3); }
+.cheatBtn {
+  background: var(--gold); color: #000; border: none;
+  font-family: 'Space Mono', monospace; font-size: 9px;
+  font-weight: bold; padding: 5px 10px; cursor: none !important;
+  letter-spacing: 1px; transition: filter .2s;
+}
+.cheatBtn:hover { filter: brightness(1.15); }
+
+/* Window */
+.window {
+  background: #111520;
+  border: 1px solid #2a2c3a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,.7), 0 0 0 1px rgba(204,122,8,.1);
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  min-height: 200px;
+  cursor: default !important;
+}
+
+.titleBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 12px;
+  background: #0d0f18;
+  border-bottom: 1px solid #1e2030;
+  flex-shrink: 0;
+  cursor: move !important;
+  user-select: none;
+}
+.winBtns { display: flex; gap: 6px; align-items: center; }
+.winBtn {
+  width: 12px; height: 12px; border-radius: 50%;
+  display: inline-block; cursor: none !important;
+  transition: filter .18s;
+}
+.winBtn:hover { filter: brightness(1.3); }
+.winTitle {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #6a7080;
+  text-transform: uppercase;
+}
+.winContent {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;  /* critical for flex children to shrink */
+  position: relative;
+}
+
+/* When window is maximized, content fills available space */
+.window[style*="inset"] .winContent,
+.window[style*="width: 100%"] .winContent {
+  height: calc(100% - 36px); /* subtract titlebar */
+}
+
+.resizeHandle {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 14px; height: 14px;
+  cursor: se-resize !important;
+  background: linear-gradient(135deg, transparent 50%, rgba(204,122,8,.4) 50%);
+}
+
+/* Taskbar */
+.taskbar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 38px;
+  background: rgba(8,9,16,.92);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid #1e2030;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  z-index: 5000;
+}
+.tbLeft { display: flex; align-items: center; }
+.tbLogo {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+.tbCenter { display: flex; gap: 3px; }
+.tbApp {
+  background: transparent;
+  border: 1px solid transparent;
+  color: rgba(255,255,255,.5);
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  padding: 3px 8px;
+  cursor: none !important;
+  transition: all .18s;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.tbApp:hover { background: rgba(204,122,8,.15); color: var(--gold); border-color: rgba(204,122,8,.3); }
+.tbOpen { border-bottom: 2px solid var(--gold) !important; color: rgba(255,255,255,.8) !important; }
+
+/* Minimized state — dashed border instead of solid, slightly dimmed */
+.tbMinimized {
+  border-bottom: 2px dashed rgba(212,130,10,0.5) !important;
+  color: rgba(255,255,255,.4) !important;
+  opacity: .75;
+}
+
+/* Small dot indicator shown when minimized */
+.tbDot {
+  font-size: 6px;
+  color: var(--gold);
+  opacity: .7;
+  margin-left: 2px;
+  vertical-align: super;
+}
+
+.tbLabel { display: none; }
+@media (min-width: 600px) { .tbLabel { display: inline; } }
+.tbRight { display: flex; align-items: center; gap: 12px; }
+.tbUser, .tbTime {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: rgba(255,255,255,.5);
+  letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+  .desktop { height: 560px; }
+  .wpText { font-size: 40px; letter-spacing: 8px; }
+  .wpSub { font-size: 8px; letter-spacing: 3px; }
+  .cheatZone { left: 10px; right: 10px; bottom: 44px; }
+  .cheatInp { width: 100%; min-width: 120px; flex: 1; }
+  .cheatForm { width: 100%; }
+  .powerBar { left: 10px; top: 52px; }
+  .earnedBar { left: 10px; top: 52px; display: none; }
+  .deskIcon { width: 60px; }
+  .deskIconEmoji { font-size: 24px; }
+  .deskIconLabel { font-size: 8px; }
+}
