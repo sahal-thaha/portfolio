@@ -226,7 +226,7 @@ export default function FileBrowser({ initialPath = '/home/sahal', onOpenApp, is
             )}
 
             {preview.download && (
-              <a href={preview.download} download className={s.downloadBtn}>
+              <a href="/SAHAL_CYBERSECURITY.pdf" download className={s.downloadBtn}>
                 ⬇ Download Resume
               </a>
             )}
