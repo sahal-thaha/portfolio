@@ -245,13 +245,9 @@
   grid-template-columns: 1.1fr 0.95fr 0.65fr;
   gap: 4vw; 
   align-items: center;
-  
   /* THE FIX: Force it to fill the .wrap container completely */
   width: 100%;
   max-width: 1800px;
-  
-  /* MAKE SURE THERE IS NO MAX-WIDTH OR !IMPORTANT HERE ANYMORE */
-  
   padding-top: 24px;
   padding-bottom: 48px;
   position: relative;

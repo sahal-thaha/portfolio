@@ -12,6 +12,7 @@ const sanitize = (str, maxLen = 1000) => {
 }
 
 const app = express()
+app.set('trust proxy', 1);
 const PORT = process.env.PORT || 5000
 
 // Middleware
@@ -42,12 +43,18 @@ const Message = mongoose.model('Message', messageSchema)
 
 // Nodemailer transporter
 const createTransporter = () => nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS, // Gmail app password
-  }
-})
+    pass: process.env.EMAIL_PASS,
+  },
+  // Hardened network settings to prevent Render timeouts
+  connectionTimeout: 10000, 
+  greetingTimeout: 10000,
+  socketTimeout: 10000,
+});
 
 // POST /api/contact
 app.post('/api/contact', limiter, async (req, res) => {
