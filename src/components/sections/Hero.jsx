@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import { Download, ArrowRight } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, InstagramIcon, XIcon } from '../ui/SocialIcons'
 import s from './Hero.module.css'
+import HeroMarquee from '../ui/HeroMarquee'
+import SlicedText from '../ui/SlicedText'
+import BrutalistIndex from '../ui/BrutalistIndex'
 
 const ROLES = ['Cybersecurity Engineer','SOC Analyst','Penetration Tester','API Security Tester','Android Security Researcher','Full-Stack Developer','Product Builder','CTF Creator']
 
@@ -171,6 +174,8 @@ export default function Hero() {
 
         {/* RIGHT */}
         <div className={s.right}>
+          {/* <HeroMarquee /> */}
+          <BrutalistIndex />
           {/* Decorative stats/badges above the text */}
           {/* <div className={s.rightBadges}>
             <div className={s.rightBadge}>
@@ -194,18 +199,18 @@ export default function Hero() {
             <div className={s.accentLine} />
           </div> */}
 
-          <p className={s.rightTxt}>
+          {/* <p className={s.rightTxt}>
             BUILDING <span className="gld">SECURE</span><br />
             SYSTEMS AND<br />
             <span className="gld">SCALABLE</span> SOLUTIONS<br />
             FOR A <span className="gld">SMARTER</span><br />
             DIGITAL FUTURE.
-          </p>
-
-          <div className={s.letsCreate}>
+          </p> */}
+            <SlicedText />
+          {/* <div className={s.letsCreate}>
             <span className={s.letsScript}>Let's create</span>
             <span className={s.something}>SOMETHING MEANINGFUL.</span>
-          </div>
+          </div> */}
         </div>
       </div>
 

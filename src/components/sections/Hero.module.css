@@ -1,5 +1,5 @@
 .hero {
-  min-height: 100vh;
+  min-height: clamp(600px, 100vh, 900px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,19 +48,20 @@
 [data-theme="dark"] .brush1 { opacity: .08; }
 [data-theme="dark"] .brush2 { opacity: .1; }
 
-.layout {
+/* .layout {
   display: grid;
   grid-template-columns: 1.1fr 0.95fr 0.65fr;
   gap: 0;
-  align-items: flex-end;
+  align-items: flex-end; */
   /* NO fixed min-height — content determines height */
-  padding: 24px 0 48px;
+  /* padding-top: 24px;
+  padding-bottom: 48px;
   position: relative;
   z-index: 1;
-}
+} */
 
 /* ── LEFT ── */
-.left { padding-right: 28px; }
+/* .left { padding-right: 28px; } */
 
 .tagline3 {
   font-family: 'Space Mono', monospace;
@@ -195,7 +196,8 @@
   position: relative;
   width: 100%;
   max-width: 360px;
-  height: clamp(440px, 60vh, 580px);
+  height: clamp(530px, 60vh, 580px);
+  max-height: 540px;
 }
 .photoGlow {
   position: absolute;
@@ -229,14 +231,48 @@
 }
 
 /* ── RIGHT ── */
-.right {
+/* .right {
   padding-left: 24px;
   z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 16px;
   justify-content: center;
+} */
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.95fr 0.65fr;
+  gap: 4vw; 
+  align-items: center;
+  
+  /* THE FIX: Force it to fill the .wrap container completely */
+  width: 100%;
+  max-width: 1800px;
+  
+  /* MAKE SURE THERE IS NO MAX-WIDTH OR !IMPORTANT HERE ANYMORE */
+  
+  padding-top: 24px;
+  padding-bottom: 48px;
+  position: relative;
+  z-index: 1;
 }
+
+.left { 
+  /* Make sure there is no padding-right here! */
+}
+
+.right {
+  /* Make sure there is no padding-left here! */
+  /* position: relative; */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+
 
 /* Remove signature comment */
 .rightTxt {
@@ -339,7 +375,7 @@
 
 /* ── TABLET (1100px and below) ── */
 @media (max-width: 1100px) {
-  .layout { grid-template-columns: 1fr 1fr; }
+  .layout { grid-template-columns: 1fr 1fr; align-items: center;}
   .right { display: none; }
   /* Hide brushes on tablet too - they look bad without 3-col layout */
   .brush1, .brush2 { display: none; }
@@ -353,7 +389,7 @@
     padding-bottom: 20px;
     justify-content: flex-start;
   }
-  .canvas { display: none; }  /* hide particle canvas on mobile for performance */
+  /* .canvas { display: none; }  hide particle canvas on mobile for performance */
   .brush1, .brush2 { display: none; }
 
   .layout {

@@ -60,7 +60,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .cur-r.h{width:46px;height:46px;opacity:.9;}
 
 /* layout */
-.wrap{max-width:1300px;margin:0 auto;padding:0 28px;}
+.wrap{max-width:2000px;margin:0 auto;padding:0 28px;}
 .sec{padding:50px 0;position:relative;z-index:1;}
 
 /* typography */
@@ -106,9 +106,9 @@ h2.stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,4rem);l
 .anim-glow{animation:glowP 2.5s ease-in-out infinite;}
 
 /* responsive helpers */
-@media(max-width:768px){.sec{padding:64px 0;}.wrap{padding:0 16px;}}
+@media(max-width:768px){.sec{padding:64px 0;}.wrap{padding:0 16px;}* { cursor: auto !important; } .cur, .cur-r { display: none !important; }}
 
-/* ── GLITTER BACKGROUND for About→Contact ── */
+/* ── GLITTER BACKGROUND for About→Contact ──
 .glitter-bg {
   position: relative;
 }
@@ -133,7 +133,7 @@ h2.stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,4rem);l
   0% { opacity: .03; transform: scale(1); }
   50% { opacity: .065; }
   100% { opacity: .03; transform: scale(1.01); }
-}
+} */
 /* dark mode glitter handled via opacity override above */
 
 /* floating glitter stars — applied via JS canvas in sections */

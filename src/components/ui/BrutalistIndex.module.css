@@ -1,0 +1,89 @@
+.container {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.indexItem {
+  /* Default to a faint dark line for Light Mode */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+  padding-bottom: 12px;
+  cursor: pointer;
+}
+
+/* Switch to a faint white line in Dark Mode */
+:global([data-theme="dark"]) .indexItem {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.3s ease;
+}
+
+.number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  line-height: 0.9;
+  color: transparent;
+  
+  /* Default to a faint dark outline for Light Mode */
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5); 
+  transition: all 0.3s ease;
+}
+
+/* Switch to a faint white outline in Dark Mode */
+:global([data-theme="dark"]) .number {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+}
+
+.slash {
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  color: var(--gold);
+  opacity: 0.5;
+}
+
+.title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--ink2);
+  text-transform: uppercase;
+}
+
+/* Hover States */
+.activeHeader {
+  transform: translateX(10px);
+}
+.activeHeader .number {
+  -webkit-text-stroke: 1px var(--gold);
+  color: rgba(232, 147, 10, 0.1); /* Slight gold fill */
+}
+
+/* The Magic Accordion CSS */
+.accordionContent {
+  display: grid;
+  grid-template-rows: 0fr; /* Collapsed */
+  transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordionContent.open {
+  grid-template-rows: 1fr; /* Expanded */
+}
+
+.innerDesc {
+  overflow: hidden; /* Required for the grid trick to work */
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted);
+  padding-left: 60px; /* Aligns description with the title */
+  padding-top: 4px;
+}

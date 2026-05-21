@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-end; Aligns to the far right */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.glitchWord {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 6vw, 6rem);
+  line-height: 0.85;  
+  color: rgba(0, 0, 0, 0.12); 
+  position: relative;
+  cursor: crosshair;
+  transition: color 0.1s;
+}
+
+/* THE FIX: Switch to faint white when in Dark Mode */
+:global([data-theme="dark"]) .glitchWord {
+  color: rgba(255, 255, 255, 0.05);
+}
+
+/* We create two exact copies of the text stacked on top of each other */
+.glitchWord::before,
+.glitchWord::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--gold);
+  opacity: 0;
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.2s;
+  pointer-events: none;
+}
+
+/* Clip-path cuts the top half for ::before and bottom half for ::after */
+.glitchWord::before {
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+
+.glitchWord::after {
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+}
+
+/* Hover Interaction */
+.glitchWord:hover {
+  color: transparent; /* Hides the original text */
+}
+
+.glitchWord:hover::before {
+  opacity: 1;
+  transform: translateX(-6px); /* Slides top half left */
+}
+
+.glitchWord:hover::after {
+  opacity: 1;
+  transform: translateX(6px); /* Slides bottom half right */
+}
