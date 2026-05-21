@@ -3,6 +3,7 @@ import toast from 'react-hot-toast'
 import { Send, Mail, Phone, MapPin } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, InstagramIcon, XIcon } from '../ui/SocialIcons'
 import s from './Contact.module.css'
+import emailjs from '@emailjs/browser'
 
 const API_URL = import.meta.env.VITE_API_URL || ''
 
@@ -27,6 +28,34 @@ export default function Contact() {
 
   const isValidEmail = (email) => /^[^\s@]{1,64}@[^\s@]{1,253}\.[^\s@]{2,}$/.test(email)
 
+  // OLD LOGIC: Using custom backend API
+
+  // const submit = async e => {
+  //   e.preventDefault()
+  //   if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+  //     toast.error('Fill all required fields'); return
+  //   }
+  //   if (!isValidEmail(form.email)) {
+  //     toast.error('Please enter a valid email address'); return
+  //   }
+  //   if (form.message.trim().length < 10) {
+  //     toast.error('Message is too short'); return
+  //   }
+  //   setSending(true)
+  //   try {
+  //     const ep = API_URL ? `${API_URL}/api/contact` : 'https://formspree.io/f/xdoqnqjq'
+  //     const res = await fetch(ep,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(form)})
+  //     const d = await res.json()
+  //     if(!res.ok) throw new Error(d.error||'Failed')
+  //     toast.success("Message sent! I'll reply within 24 hours.")
+  //     setForm({name:'',email:'',subject:'',message:''})
+  //   } catch(err) {
+  //     toast.error('Could not send. Email: sahal.bin.thaha@gmail.com')
+  //   } finally { setSending(false) }
+  // }
+
+  // NEW LOGIC: Using EmailJS for direct client-side email sending
+
   const submit = async e => {
     e.preventDefault()
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
@@ -38,18 +67,33 @@ export default function Contact() {
     if (form.message.trim().length < 10) {
       toast.error('Message is too short'); return
     }
+    
     setSending(true)
+    
     try {
-      const ep = API_URL ? `${API_URL}/api/contact` : 'https://formspree.io/f/xdoqnqjq'
-      const res = await fetch(ep,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(form)})
-      const d = await res.json()
-      if(!res.ok) throw new Error(d.error||'Failed')
+      // Direct frontend-to-API transmission, bypassing all cloud server firewalls
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+      
       toast.success("Message sent! I'll reply within 24 hours.")
-      setForm({name:'',email:'',subject:'',message:''})
+      setForm({name:'', email:'', subject:'', message:''})
     } catch(err) {
+      console.error('EmailJS Error:', err);
       toast.error('Could not send. Email: sahal.bin.thaha@gmail.com')
-    } finally { setSending(false) }
+    } finally { 
+      setSending(false) 
+    }
   }
+
 
   return (
     <section id="contact" className="sec">
