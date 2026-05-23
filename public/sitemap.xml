@@ -5,52 +5,52 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://sahalpt.dev/</loc>
+    <loc>https://sahalthaha.vercel.app/</loc>
     <lastmod>2025-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://sahalpt.dev/sahal-day.jpg</image:loc>
+      <image:loc>https://sahalthaha.vercel.app/sahal-day.jpg</image:loc>
       <image:title>Sahal P T &#8212; Cybersecurity Engineer &amp; Developer</image:title>
       <image:caption>Sahal P T, Cybersecurity Engineer and Developer from Thrissur, Kerala, India</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://sahalpt.dev/og-image.jpg</image:loc>
+      <image:loc>https://sahalthaha.vercel.app/og-image.png</image:loc>
       <image:title>Sahal P T Portfolio Banner</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://sahalpt.dev/#about</loc>
+    <loc>https://sahalthaha.vercel.app/#about</loc>
     <lastmod>2025-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://sahalpt.dev/#skills</loc>
+    <loc>https://sahalthaha.vercel.app/#skills</loc>
     <lastmod>2025-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sahalpt.dev/#experience</loc>
+    <loc>https://sahalthaha.vercel.app/#experience</loc>
     <lastmod>2025-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://sahalpt.dev/#projects</loc>
+    <loc>https://sahalthaha.vercel.app/#projects</loc>
     <lastmod>2025-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://sahalpt.dev/#lab</loc>
+    <loc>https://sahalthaha.vercel.app/#lab</loc>
     <lastmod>2025-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sahalpt.dev/#contact</loc>
+    <loc>https://sahalthaha.vercel.app/#contact</loc>
     <lastmod>2025-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
