@@ -3,6 +3,12 @@ import s from './Certifications.module.css'
 
 const certs = [
   { short:'OCSP', title:'Offenso Certified Security Professional', issuer:'Offenso Hackers Academy', color:'#d4820a', desc:'Advanced offensive security: penetration testing, exploitation, and red team methodologies.' },
+  { short:'FSOAR', title:'FortiSOAR 7.6 Administrator', issuer:'Fortinet Training Institute', color:'#22c55e', desc:'Security orchestration, automation, and incident response administration using FortiSOAR.' },
+  { short:'FSIEM', title:'FortiSIEM 7.2 Administrator', issuer:'Fortinet Training Institute', color:'#38bdf8', desc:'SIEM administration, log monitoring, correlation, and threat detection workflows.' },
+  { short:'FNDR', title:'FortiNDR On-Premises 7.4 Administrator', issuer:'Fortinet Training Institute', color:'#a78bfa', desc:'Network detection and response administration for on-premises environments.' },
+  { short:'FSB', title:'FortiSandbox 5.0 Administrator', issuer:'Fortinet Training Institute', color:'#f59e0b', desc:'Sandbox administration for malware analysis and threat detonation workflows.' },
+  { short:'FMG', title:'FortiManager Administrator', issuer:'Fortinet Training Institute', color:'#fb7185', desc:'Centralized network and security policy management administration.' },
+  { short:'NET', title:'Networking Basics', issuer:'Cisco Networking Academy', color:'#06b6d4', desc:'Foundational networking concepts, protocols, and infrastructure principles.' },
   { short:'CCEP', title:'Certified Cybersecurity Educator Professional', issuer:'RED TEAM LEADERS', color:'#22c55e', desc:'Cybersecurity education design focused on real-world threat scenarios and training frameworks.' },
   { short:'PY', title:'Python Course for Beginners', issuer:'Perfect eLearning Private Limited', color:'#38bdf8', desc:'Python scripting, automation, and application development fundamentals.' },
   { short:'LX', title:'Linux 100 Fundamentals', issuer:'TCM Security Academy', color:'#a78bfa', desc:'Linux system administration, CLI mastery, and security-focused OS configuration.' },

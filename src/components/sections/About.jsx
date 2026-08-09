@@ -28,11 +28,11 @@ export default function About() {
             <h2 className="stitle">Building <span className="gld">Secure</span><br/>Systems &<br/>Scalable Solutions</h2>
             <p className={s.bio}>
               I'm <strong>Sahal P T</strong>, a Cybersecurity Analyst & Developer from Thrissur, Kerala.
-              Currently at <span className="gld">Beagle Security</span> — conducting Web & API penetration testing,
-              engineering Python automation tools, and helping organizations build more secure and resilient applications.  
+              Currently at <span className="gld">Alliance Pro IT</span> as a SOC L1 Analyst, working with FortiSOAR,
+              FortiNDR, FortiSandbox, and InnSpark SIEM to monitor threats, investigate alerts, and strengthen security operations.
             </p>
             <p className={s.bio}>
-              My work bridges offensive security and product development — I find the vulnerability <em>and</em> build the fix.
+              My work bridges offensive security and product development, with a strong focus on defense as well — I find the vulnerability, build the fix, and help keep systems resilient.
             </p>
             <div className={s.details}>
               {[

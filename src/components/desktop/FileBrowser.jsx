@@ -238,7 +238,7 @@ export default function FileBrowser({ initialPath = '/home/sahal', onOpenApp, is
                 <a href="/SAHAL____FULL_STACK_DEVELOPER.pdf" download="Sahal_WebDev_Resume.pdf" className={s.downloadBtn}>
                   ⬇ Web Dev CV
                 </a>
-                <a href="/SAHAL_CYBERSECURITY.pdf" download="Sahal_VAPT_Resume.pdf" className={s.downloadBtn}>
+                <a href="/SAHAL_PENTEST.pdf" download="Sahal_VAPT_Resume.pdf" className={s.downloadBtn}>
                   ⬇ VAPT CV
                 </a>
               </div>

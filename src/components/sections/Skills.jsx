@@ -3,7 +3,7 @@ import s from './Skills.module.css'
 
 const groups = [
   { label:'Penetration Testing', color:'#d4820a', skills:['Burp Suite','Metasploit','Nmap','OWASP ZAP','Sqlmap','Nikto','Hydra','Gobuster','Nessus','Aircrack-ng','Wpscan','Cmseek','OpenVAS','John the Ripper'] },
-  { label:'SOC & Monitoring',    color:'#22c55e', skills:['Splunk','ELK Stack','Wazuh','Snort','Wireshark','IDS/IPS','Firewall','Elasticsearch','Logstash','Kibana'] },
+  { label:'SOC & Monitoring',    color:'#22c55e', skills:['FortiSIEM','FortiSOAR','FortiNDR','FortiSandbox','FortiManager','Innspark SIEM','Splunk','ELK Stack','Wazuh','Snort','Wireshark','IDS/IPS','Firewall','Elasticsearch','Logstash','Kibana'] },
   { label:'Development',         color:'#38bdf8', skills:['Python','JavaScript','React','Django','Node.js','Bash','PowerShell','HTML','CSS','REST API'] },
   { label:'Infrastructure',      color:'#a78bfa', skills:['Docker','AWS','Azure','VirtualBox','VMware','Kali Linux','Parrot OS','Ubuntu Server','Windows'] },
 ]

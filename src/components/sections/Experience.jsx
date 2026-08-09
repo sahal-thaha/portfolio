@@ -1,7 +1,9 @@
 import s from './Experience.module.css'
 
 const exps = [
-  { role:'Cybersecurity Intern', co:'Beagle Security', loc:'Thiruvananthapuram', period:'Jan 2026 — Present', type:'Current Role', color:'#d4820a',
+  { role:'SOC L1 Analyst', co:'Alliance Pro IT', loc:'Thiruvananthapuram', period:'July 2026 — Present', type:'Current Role', color:'#d4820a',
+    pts:['Undergoing active technical onboarding and specialized training on enterprise defensive security platforms and SOC operational workflows','Developing hands-on proficiency in security orchestration, network detection, endpoint protection, and automated analysis using FortiSOAR, FortiSIEM, FortiNDR, FortiSandbox, FortiManager, and FortiRecon','Training on log aggregation, correlation rule development, and behavioral threat detection using Innspark SIEM integrated with User and Entity Behavior Analytics (UEBA)','Setting up simulated enterprise lab scenarios to practice real-time alert triage, incident containment, and threat intelligence mapping'] },
+  { role:'Cybersecurity Intern', co:'Beagle Security', loc:'Thiruvananthapuram', period:'Feb 2026 — May 2026', type:'Internship', color:'#c44fc8',
     pts:['Web & API Penetration Testing using Burp Suite, OWASP ZAP, and Postman — finding Broken Access Control, JWT flaws, rate-limiting vulnerabilities','Manual exploitation beyond automated scanning tools — real offensive security work','CERT-In aligned security assessment processes — professional-grade vulnerability validation','Created detailed VAPT reports with CVSS-based risk scoring and actionable remediation','Engineered custom automation tools to streamline automated testing, reconnaissance and scanning pipelines'] },
   { role:'Cybersecurity Student Trainee', co:'Offenso Hackers Academy', loc:'Calicut', period:'June 2025 — Dec 2025', type:'Training', color:'#22c55e',
     pts:['Selected for the Research & Development team — cybersecurity learning initiatives','Designed CTF challenges in cryptography & digital forensics with multi-layer encryption scenarios','Conducted vulnerability analysis and contributed to hands-on cybersecurity research activities'] },
